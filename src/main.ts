@@ -1,16 +1,20 @@
-// Element Plus 的 Sass 主题变量覆盖（必须放在样式导入之前）
-@use '@/styles/element/index.scss' as *;
-
-// Element Plus 的 Sass 样式
-@import 'element-plus/theme-chalk/src/index.scss';
-
 import './assets/main.css'
+
+// Element Plus 的 Sass 主题样式（放在其他样式之后）
+import 'element-plus/theme-chalk/src/index.scss'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router'
+
+// // 测试接口函数
+// import { getCategory } from './apis/testApi'
+
+// getCategory().then(res => {
+//   console.log(res)
+// })
 
 const app = createApp(App)
 
