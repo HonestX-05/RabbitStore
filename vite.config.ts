@@ -19,7 +19,8 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()],
     }),
     Components({
-      resolvers: [ElementPlusResolver()],
+      // 设置element plus采用sass的样式配色系统
+      resolvers: [ElementPlusResolver({ importStyle: 'scss' })],
     }),
   ],
   resolve: {
@@ -28,4 +29,12 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // 自动导入定制化样式文件进行样式覆盖
+        additionalData: `@use "@/styles/element/index.scss" as *;`,
+      }
+    }
+  }
 })

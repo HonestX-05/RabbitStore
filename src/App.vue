@@ -3,10 +3,10 @@
 </script>
 
 <template>
-  <el-button>I am ElButton</el-button>
+  <el-button type = "primary">Primary</el-button>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 header {
   line-height: 1.5;
   max-height: 100vh;
