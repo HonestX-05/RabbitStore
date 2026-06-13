@@ -3,15 +3,28 @@ import HomeCategory from './components/HomeCategory.vue'
 import HomeBanner from './components/HomeBanner.vue'
 import HomeNew from './components/HomeNew.vue'
 import HomeHot from './components/HomeHot.vue'
-import homeProduct from './components/HomeProduct.vue'
+import HomeProduct from './components/HomeProduct.vue'
+import HomePanel from './components/HomePanel.vue'
 </script>
 
 <template>
-    <div class="container">
+    <div class="container home-top">
         <HomeCategory />
         <HomeBanner />
     </div>
     <HomeNew />
     <HomeHot />
-    <homeProduct />
+    <HomeProduct />
+    <HomePanel :title="'新鲜好物'" :sub-title="'新鲜好物 好多商品'">
+        <div>新鲜好物</div>
+    </HomePanel>
+    <HomePanel :title="'人气推荐'" :sub-title="'人气推荐 好多商品'">
+        <div>人气推荐</div>
+    </HomePanel>
 </template>
+
+<style scoped lang="scss">
+.home-top {
+    display: flex;
+}
+</style>
