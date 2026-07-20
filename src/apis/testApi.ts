@@ -5,3 +5,4 @@ export function getCategory() {
         url: '/home/category/head',
     })
 }
+
