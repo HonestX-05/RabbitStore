@@ -3,6 +3,7 @@
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
 import 'element-plus/theme-chalk/el-message.css'
+import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/user'
 
 const httpInstance = axios.create({
@@ -27,6 +28,16 @@ httpInstance.interceptors.request.use(config => {
 httpInstance.interceptors.response.use(res => res.data, e => {
     // 统一错误提示
     ElMessage.warning(e.response.data.msg)
+
+    // 处理401，token校验失败问题
+    const userStore = useUserStore()
+    const router = useRouter()
+    // 清除用户信息并跳转登录页，登录重新获取token
+    if(e.response.status === 401) {
+        userStore.clearUserInfo()
+        router.push('/login')
+    }
+
     return Promise.reject(e)
 })
 
