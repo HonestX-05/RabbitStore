@@ -43,8 +43,7 @@ const addCart = () => {
             attrsText: skuObj.specsText,
             selected: true
         })
-
-
+        ElMessage.success('添加购物车成功')
     } else {
         // 规格未选择 提示用户选择规格
         ElMessage.warning('请选择规格')
